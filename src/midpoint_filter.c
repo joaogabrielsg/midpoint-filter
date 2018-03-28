@@ -1,19 +1,12 @@
 #include <stdio.h>
+#include "image.h"
 
 int main()
 {
 	return 1;
 }
 
-struct Image{
-	int rows;
-	int columns;
-	unsigned char *data;
-	unsigned char type;
-}
-
-
-midpoint(struct Image *IMAGE, struct Image *IMAGE1){
+void midpoint(struct Image *IMAGE, struct Image *IMAGE1){
 	int x, y, i, j, smin, smax, n;
 	int a[11][11];
 	n =3;
@@ -41,11 +34,7 @@ midpoint(struct Image *IMAGE, struct Image *IMAGE1){
 					}
 				}
 			}
-			
-			*(IMAGE1->data + x +(long) y *IMAGE->columns) = (smin + smax)/2;
-			
-		}
-		
+			*(IMAGE1->data + x +(long) y *IMAGE->columns) = (smin + smax)/2;	
+		}	
 	}
-	
 }
