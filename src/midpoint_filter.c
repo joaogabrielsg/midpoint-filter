@@ -1,8 +1,25 @@
 #include <stdio.h>
+#include <memory.h>
 #include "image.h"
+
 
 int main()
 {
+	struct Image in,out;
+
+	signed char *temp; int i;
+
+	in.Rows = out.Rows = 256;
+	in.Cols = out.Cols = 256;
+	in.Type = out.type = BASIC;
+
+	in.Data = (unsigned char *)calloc(out.Rows,out.Cols);
+	out.Data = (unsigned char *)calloc(out.Rows,in,Cols);
+
+	Img-in(&in);
+	midpoint(&in,&out)
+	Img_out(&out)
+
 	return 1;
 }
 
