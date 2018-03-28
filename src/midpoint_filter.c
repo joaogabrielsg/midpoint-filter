@@ -5,22 +5,24 @@
 
 int main()
 {
+
 	struct Image in,out;
 
 	signed char *temp; int i;
 
-	in.Rows = out.Rows = 256;
-	in.Cols = out.Cols = 256;
-	in.Type = out.type = BASIC;
+	in.rows = out.rows = 256;
+	in.columns = out.columns = 256;
+	//in.type = out.type = BASIC;
 
-	in.Data = (unsigned char *)calloc(out.Rows,out.Cols);
-	out.Data = (unsigned char *)calloc(out.Rows,in,Cols);
+	in.data = (unsigned char *)calloc(in.rows,in.columns);
+	out.data = (unsigned char *)calloc(out.rows,out.columns);
 
-	Img-in(&in);
-	midpoint(&in,&out)
-	Img_out(&out)
+	image_in(&in);
+	midpoint(&in,&out);
+	image_out(&out);
+	
 
-	return 1;
+	return 0;
 }
 
 void midpoint(struct Image *IMAGE, struct Image *IMAGE1){
@@ -30,7 +32,7 @@ void midpoint(struct Image *IMAGE, struct Image *IMAGE1){
 
 	for(y=n/2; y<IMAGE->rows-n/2; y++){
 		for(x=n/2; x<IMAGE->columns-n/2; x++){
-			smin=255; 
+			smin=255;
 			smax=0;
 			for(j=-n/2; j<n/2; i++){
 				for(i=-n/2; i<n/2; j++){
@@ -51,7 +53,7 @@ void midpoint(struct Image *IMAGE, struct Image *IMAGE1){
 					}
 				}
 			}
-			*(IMAGE1->data + x +(long) y *IMAGE->columns) = (smin + smax)/2;	
-		}	
+			*(IMAGE1->data + x +(long) y *IMAGE->columns) = (smin + smax)/2;
+		}
 	}
 }
