@@ -1,34 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <memory.h>
 #include "image.h"
-
-
-int main()
-{
-
-	struct Image in,out;
-
-	signed char *temp; int i;
-
-	in.rows = out.rows = 256;
-	in.columns = out.columns = 256;
-	//in.type = out.type = BASIC;
-
-	in.data = (unsigned char *)calloc(in.rows,in.columns);
-	out.data = (unsigned char *)calloc(out.rows,out.columns);
-
-	image_in(&in);
-	midpoint(&in,&out);
-	image_out(&out);
-	
-
-	return 0;
-}
 
 void midpoint(struct Image *IMAGE, struct Image *IMAGE1){
 	int x, y, i, j, smin, smax, n;
 	int a[11][11];
-	n =3;
+	n = 3;
 
 	for(y=n/2; y<IMAGE->rows-n/2; y++){
 		for(x=n/2; x<IMAGE->columns-n/2; x++){
@@ -56,4 +34,22 @@ void midpoint(struct Image *IMAGE, struct Image *IMAGE1){
 			*(IMAGE1->data + x +(long) y *IMAGE->columns) = (smin + smax)/2;
 		}
 	}
+}
+
+int main()
+{
+	struct Image in,out;
+
+	in.rows = out.rows = 191;
+	in.columns = out.columns = 196;
+	//in.type = out.type = BASIC;
+
+	in.data = (unsigned char *)calloc(in.rows,in.columns);
+	out.data = (unsigned char *)calloc(out.rows,out.columns);
+
+	image_in(&in);
+	midpoint(&in,&out);
+	image_out(&out);
+
+	return 0;
 }
