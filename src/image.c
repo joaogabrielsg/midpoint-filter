@@ -6,6 +6,11 @@ void image_in(struct Image *IMAGE){
     int i;
 
     file = fopen("teste.png", "rb");
+
+    if (file == NULL) {
+        printf("Erro na abertura do arquivo de imagem de leitura \n");
+    }
+
     for(i=0; i<IMAGE->rows; i++){
         fread(IMAGE->data + i*IMAGE->columns, IMAGE->columns, 1, file);
     }
@@ -19,6 +24,11 @@ void image_out(struct Image *IMAGE){
     int i;
 
     file = fopen("OUTIMAGE.png", "rb");
+
+    if (file == NULL) {
+        printf("Erro na abertura do arquivo de imagem de escrita \n");
+    }
+
     for(i=0; i<IMAGE->rows; i++){
         fwrite(IMAGE->data + i*IMAGE->columns, IMAGE->columns, 1, file);
     }

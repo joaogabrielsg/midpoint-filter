@@ -12,8 +12,8 @@ void midpoint(struct Image *IMAGE, struct Image *IMAGE1){
 		for(x=n/2; x<IMAGE->columns-n/2; x++){
 			smin=255;
 			smax=0;
-			for(j=-n/2; j<n/2; i++){
-				for(i=-n/2; i<n/2; j++){
+			for(j=-n/2; j<=n/2; j++){
+				for(i=-n/2; i<=n/2; i++){
 					a[i+n/2][j+n/2]= *(IMAGE->data+x+i+(long)(y+j) * IMAGE->columns);
 				}
 			}
