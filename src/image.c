@@ -5,7 +5,7 @@ void image_in(struct Image *IMAGE){
     FILE *file;
     int i;
 
-    file = fopen("teste.png", "rb");
+    file = fopen("teste.png", "r");
 
     if (file == NULL) {
         printf("Erro na abertura do arquivo de imagem de leitura \n");
@@ -23,7 +23,7 @@ void image_out(struct Image *IMAGE){
     FILE *file;
     int i;
 
-    file = fopen("OUTIMAGE.png", "rb");
+    file = fopen("out_teste.png", "w+");
 
     if (file == NULL) {
         printf("Erro na abertura do arquivo de imagem de escrita \n");
