@@ -8,17 +8,16 @@ int main()
 
 	struct Image in,out;
 
-	signed char *temp; int i;
 
 	in.rows = out.rows = 243;
 	in.columns = out.columns = 243;
-	//in.type = out.type = BASIC;
+	in.type = out.type = UINT;
 
 	in.data = (unsigned char *)calloc(in.rows,in.columns);
 	out.data = (unsigned char *)calloc(out.rows,out.columns);
 
 	image_in(&in);
-	 //midpoint(in,out);
+    //midpoint(&in,&out);
 	image_out(&in);
 
 
@@ -30,7 +29,6 @@ void midpoint(struct Image *IMAGE, struct Image *IMAGE1){
 	int x, y, i, j, smin, smax, n;
 	int a[3][3];
 	n =3;
-    printf("fudeu");
 	for(y=n/2; y<IMAGE->rows-n/2; y++){
 		for(x=n/2; x<IMAGE->columns-n/2; x++){
 			smin=255;
