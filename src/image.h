@@ -7,7 +7,7 @@
 struct Image{
     int rows;
     int columns;
-    unsigned char *data;
+    int data[37436];
     unsigned char type;
 };
 void image_in(struct Image *IMAGE);
