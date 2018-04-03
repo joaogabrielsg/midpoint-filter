@@ -1,22 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "image.h"
-
 void image_in(struct Image *IMAGE){
     FILE *file;
-<<<<<<< HEAD
     int i, row, column, size, value;
 
     char type, file_name;
-=======
-    int i, value;
->>>>>>> 8f67a6c0f544463a5005b9b9840526c2e02d8e00
     char teste[IMAGE->rows];
     file = fopen("balloons.ascii.pgm", "rb");
     if (file == NULL) {
         printf("Erro na abertura do arquivo de imagem de leitura \n");
     }
-<<<<<<< HEAD
 
     fscanf(file, "%s", &type);
     printf("%s", &type);
@@ -53,32 +47,10 @@ void image_in(struct Image *IMAGE){
 
     fclose(file);
 
-=======
-    for(i=0; i<(IMAGE->rows * IMAGE->columns); i++){
-        
-        fscanf(file, "%d", &value);
-        IMAGE->data[i] = value;
-
-//        printf("%d \n", value);
-//        teste[i] = IMAGE->data;
-        //IMAGE->data = fgets(IMAGE->data,IMAGE->rows,file);
-        /*if(IMAGE->data)
-         {
-         //printf("%c",IMAGE->data);
-         }*/
-        //printf("%c",teste[i]);
-        
-    }
-//    IMAGE->data = teste;
-    fclose(file);
-    
-    
->>>>>>> 8f67a6c0f544463a5005b9b9840526c2e02d8e00
 }
 
 
 void image_out(struct Image *IMAGE){
-<<<<<<< HEAD
     FILE *file,*file2;
     int i, row, column, size, value,cont = 0;
 
@@ -149,30 +121,4 @@ void image_out(struct Image *IMAGE){
     fclose(file);
     fclose(file2);
 
-=======
-//    FILE *file;
-//    int i;
-//    file = fopen("out_teste.txt", "wb");
-//    
-//    if (file == NULL) {
-//        printf("Erro na abertura do arquivo de imagem de escrita \n");
-//    }
-//    
-//    for(i=0; i<IMAGE->rows; i++){
-//        IMAGE->data = fgets(IMAGE->data,IMAGE->rows,file);
-//        if(IMAGE->data)
-//        {
-//            fputs(IMAGE->data,file);
-//        }
-//        
-//        
-//        
-//        //fwrite(IMAGE->data + i*IMAGE->columns, IMAGE->columns,1, file);
-//        //printf("Image out \n");
-//        //printf("%d\n",&IMAGE->columns);
-//        
-//    }
-//    
-//    fclose(file);
->>>>>>> 8f67a6c0f544463a5005b9b9840526c2e02d8e00
 }
