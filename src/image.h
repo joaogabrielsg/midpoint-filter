@@ -1,5 +1,3 @@
-
-//
 #ifndef  IMAGE_H
 #define  IMAGE_H
 
@@ -11,6 +9,7 @@ struct Image{
     int columns;
     int data[262144];
     unsigned char type;
+    int max_size;
 };
 void image_in(struct Image *IMAGE);
 void image_out(struct Image *IMAGE);
