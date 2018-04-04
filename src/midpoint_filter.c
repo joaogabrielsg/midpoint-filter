@@ -1,3 +1,5 @@
+
+
 #include <stdio.h>
 #include <memory.h>
 #include "image.h"
@@ -8,8 +10,8 @@ void midpoint(struct Image *IMAGE, struct Image *IMAGE1){
     int a[2][2];
     n = 2;
     
-    for(y=0; y<IMAGE->rows-n/2; y++){
-        for(x=0; x<IMAGE->columns-n/2; x++){
+    for(y=0; y<IMAGE->rows; y++){
+        for(x=0; x<IMAGE->columns; x++){
             smin=255;
             smax=0;
             for(j=-n/2; j<n/2; j++){
@@ -27,18 +29,18 @@ void midpoint(struct Image *IMAGE, struct Image *IMAGE1){
                     if(a[i][j] < smin && a[i][j] >= 0){
                         smin = a[i][j];
                     }
-//                    if(a[i][j] > smax && a[i][j] >= 0){
-//                        smax = a[i][j];
-//                    }
-                }
-            }
-            for(j=0; j<=n-1;j++){
-                for(i=0; i<=n-1; i++){
-                    if(a[i][j] > smax && a[i][j] > 0){
+                    if(a[i][j] > smax && a[i][j] >= 0){
                         smax = a[i][j];
                     }
                 }
             }
+//            for(j=0; j<=n-1;j++){
+//                for(i=0; i<=n-1; i++){
+//                    if(a[i][j] > smax && a[i][j] > 0){
+//                        smax = a[i][j];
+//                    }
+//                }
+//            }
             //            *(IMAGE1->data + x +(long) y *IMAGE->columns) = (smin + smax)/2;
             IMAGE1->data[x + (long) y * IMAGE->columns] = (smin + smax)/2;
             //            printf("%d\n", (smin + smax)/2);

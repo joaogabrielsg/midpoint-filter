@@ -12,6 +12,7 @@ struct Image{
 };
 void image_in(struct Image *IMAGE);
 void image_out(struct Image *IMAGE);
+void saveImg(struct Image *image);
 #define BASIC 0
 #define UINT 1
 #endif  /*IMAGE_H*/
