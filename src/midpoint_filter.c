@@ -1,14 +1,12 @@
-
-
 #include <stdio.h>
 #include <memory.h>
 #include "image.h"
+
 
 void midpoint(struct Image *IMAGE, struct Image *IMAGE1){
     int x, y, i, j, w, z, smin, smax, n;
     int a[3][3];
     n = 3;
-    
     for(y=0; y < IMAGE->rows; y++){
         for(x=0; x < IMAGE->columns; x++){
             smin=255;
@@ -17,7 +15,7 @@ void midpoint(struct Image *IMAGE, struct Image *IMAGE1){
             for(j=-n/2; j<=n/2; j++){
                 for(i=-n/2; i<=n/2; i++){
 //
-                    if((x+i) < 0 || (x+i) > IMAGE->columns || (y+j) < 0 || (y+j) > IMAGE->rows){
+                    if((x+i) <= 0 || (x+i) > IMAGE->columns || (y+j) <= 0 || (y+j) > IMAGE->rows){
                         a[j+n/2][i+n/2] = -1;
                     }else{
                         a[j+n/2][i+n/2] = IMAGE->data[x+i+(long)(y+j) * IMAGE->columns];
@@ -39,22 +37,21 @@ void midpoint(struct Image *IMAGE, struct Image *IMAGE1){
                 }
             }
             IMAGE1->data[x + (long) y * IMAGE->columns] = (smin + smax)/2;
-//            printf("%d\n", (smin + smax)/2);
-            
+            printf("%d\n", (smin + smax)/2);
+
         }
     }
 }
 
+
 int main()
 {
-    struct Image in;
-    struct Image out;
-    in.rows =  512;
-    in.columns = 512;
+    struct Image in,out;
+    in.rows = out.rows = 96;
+    in.columns = out.columns =  98;
     image_in(&in);
     midpoint(&in,&out);
     saveImg(&out);
-    
+
     return 1;
 }
-
