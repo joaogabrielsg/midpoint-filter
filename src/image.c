@@ -15,7 +15,7 @@ void image_in(struct Image *IMAGE){
     if (file == NULL) {
         printf("Erro na abertura do arquivo de imagem de leitura \n");
     }
-    //leitura do cabeçalho da imagem
+
     fscanf(file, "%s\r\n", &type);
     printf("%s", &type);
 
@@ -41,7 +41,7 @@ void image_in(struct Image *IMAGE){
     fscanf(file, "%d", &size);
     printf("%d\n", size);
 
-    //loop que lê os valores contidos na matriz imagem
+
     for(i=0; i<(row*column); i++){
         fscanf(file, "%d", &value);
         IMAGE->data[i] = value;
@@ -53,8 +53,6 @@ void image_in(struct Image *IMAGE){
 
 void saveImg(struct Image *image)
 {
-    //função que gera o arquivo de saída
-
     int i,j, chars = 0;
     FILE *arq;    //ponteiro para arquivo de saída
 
@@ -76,6 +74,9 @@ void saveImg(struct Image *image)
             fprintf(arq, "\n");
             line = 0;
         }
+        //printf("%d\n", i);
+        //            printf("%d", image->data[i*j]);
+        //            fprintf(arq, "%d ", image->data[i * j]);
         chars++;
         if (chars == 12) {
             fprintf(arq, "%d \n", image->data[i]);
@@ -108,7 +109,7 @@ void saveImg(struct Image *image)
     fclose(arq);
 }
 
-//função de leitura porém não funciona não copia o arquivo de forma correta
+
 void image_out(struct Image *IMAGE){
     FILE *file,*file2;
     int i, row, column, size, value = 0,cont = 0;
