@@ -3,6 +3,7 @@
 #include<time.h>
 #include "image.h"
 
+//be carefull with the image size, tested image size is 96x98
 
 void midpoint(struct Image *IMAGE, struct Image *IMAGE1){
     int x, y, i, j, w, z, smin, smax, n;
